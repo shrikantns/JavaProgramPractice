@@ -1,0 +1,18 @@
+
+    public class Main {
+    public static void main(String[] args){
+        int a=4,b =2; //Integer//
+        int Add = a + b; int Sub = a - b; int Mul = a * b; int Div = a / b;
+        String name = "Shrikant Nandanwar";  //String//
+        boolean name1 = true;   //boolean Type //
+        float num = 45.5f;    //Float Data Type//
+        short C = 100;       //Short Data Type//
+       System.out.println("Output="+Add);//Addition//
+       System.out.println("The result="+Sub);//Minus//
+       System.out.println("The result="+Mul); //Multiplication//
+       System.out.println("The result="+Div); //Division//
+       System.out.println(name); //String//
+       System.out.println(name1); //boolean//
+       System.out.println(num);
+       System.out.println(C);
+   }}
