@@ -1,4 +1,7 @@
-
+//Write a Java program to print the area and perimeter of a rectangle.
+//Test Data:
+//Width = 5.5 Height = 8.5
+//Width1 = 5 , Height1  = 10
 package Lab005;
 public class main {
     public static void main(String[] args) {
