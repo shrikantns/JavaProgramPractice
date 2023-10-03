@@ -1,0 +1,142 @@
+package Sep23.inheritence.mutlilevel;
+
+//Write a Java program that creates a class hierarchy for employees of a company.
+// The base class should be Employee, with subclasses Manager, Developer, and Programmer.
+//Each subclass should have properties such as name, address, salary, and job title.
+//Implement methods for calculating bonuses, generating performance reports, and managing projects.
+public class PanasonicEmployee {
+    private final String name;
+    private final String address;
+    private final double salary;
+    private final String jobtitle;
+
+
+    public PanasonicEmployee(String name, String address, double salary, String jobtitle) {
+        this.name = name;
+        this.address = address;
+        this.salary = salary;
+        this.jobtitle = jobtitle;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public String getJobtitle() {
+        return jobtitle;
+    }
+
+    public double calculateBonus() {
+        // Default implementation for bonus calculation
+        return 0.0;
+    }
+
+    public String generatePerformanceReport() {
+        // Default implementation for performance report
+        return "No performance report available.";
+    }
+}
+
+class Manager extends PanasonicEmployee {
+    private int noofsubordinates;
+
+    public Manager(String name, String address, double salary, String jobtitle) {
+        super(name, address, salary, jobtitle);
+        //this.noofsubordinates = noofsubordinates;
+    }
+
+    public int getNoofsubordinates() {
+        return noofsubordinates;
+    }
+
+    public double calculateBonus() {
+        // Default implementation for bonus calculation
+        return getSalary() * 0.15;
+    }
+
+    public String generatePerformanceReport() {
+        // Custom implementation for performance report for managers
+        return "Performance report for Manager " + getName() + ": Excellent";
+    }
+
+    public void manageProject() {
+        // Custom method for managing projects
+        System.out.println("Manager " + getName() + " is managing a project.");
+    }
+}
+
+class Developer extends PanasonicEmployee {
+    private String programmingLanguage;
+
+    public Developer(String name, String address, double salary, String jobtitle, String programmingLanguage) {
+        super(name, address, salary, jobtitle);
+    }
+
+    public String getProgrammingLanguage() {
+        return programmingLanguage;
+    }
+
+    public double calculateBonus() {
+        // Default implementation for bonus calculation
+        return getSalary() * 0.15;
+    }
+
+    public String generatePerformanceReport() {
+        // Custom implementation for performance report for managers
+        return "Performance report for Manager " + getName() + ": Good";
+    }
+
+    public void writeCode() {
+        // Custom method for managing projects
+        System.out.println("Manager " + getName() + " is writing code in " + programmingLanguage);
+    }
+}
+
+class Programmer extends Developer {
+    public Programmer(String name, String address, double salary, String programmingLanguage) {
+        super(name, address, salary, "Programmer", programmingLanguage);
+    }
+
+    @Override
+    public double calculateBonus() {
+        // Custom implementation for bonus calculation for programmers
+        return getSalary() * 0.12;
+    }
+
+    @Override
+    public String generatePerformanceReport() {
+        // Custom implementation for performance report for programmers
+        return "Performance report for Programmer " + getName() + ": Excellent";
+    }
+
+    public void debugCode() {
+        // Custom method for debugging code
+        System.out.println("Programmer " + getName() + " is debugging code in " + getProgrammingLanguage());
+    }
+
+    public static void main(String[] args) {
+        Manager manager = new Manager("Avril Aroldo", "1 ABC St", 80000.0, "Manager");
+        Developer developer = new Developer("Iver Dipali", "2 PQR St", 72000.0, "Developer", "Java");
+        Programmer programmer = new Programmer("Yaron Gabriel", "3 ABC St", 76000.0, "Python");
+
+        System.out.println("Manager's Bonus: $" + manager.calculateBonus());
+        System.out.println("Developer's Bonus: $" + developer.calculateBonus());
+        System.out.println("Programmer's Bonus: $" + programmer.calculateBonus());
+
+        System.out.println(manager.generatePerformanceReport());
+        System.out.println(developer.generatePerformanceReport());
+        System.out.println(programmer.generatePerformanceReport());
+
+        manager.manageProject();
+        developer.writeCode();
+        programmer.debugCode();
+    }
+}
